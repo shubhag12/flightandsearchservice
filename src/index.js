@@ -9,7 +9,7 @@ const setupandstartservice=async()=>{
     app.use(bodyParser.urlencoded({extended:true}));
     app.use('/api',ApiRoutes);
    // const PORT=3000;
-    app.listen(PORT,()=>{
+    app.listen(PORT,async()=>{
         console.log(`server starting at ${PORT}`);
         //console.log(city);
        // console.log(process.env);
