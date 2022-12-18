@@ -1,7 +1,7 @@
 const {City}=require("../models/index");
 
 class CityRepository{
-    async createcity({name}){
+    async createCity({name}){
         try{
           const city=await City.create({name});
           return city;
@@ -10,7 +10,7 @@ class CityRepository{
            throw {error};  
         }
     }
-    async deletecity(cityId){
+    async deleteCity(cityId){
         try{
             await City.destroy({
                 where:{
@@ -34,7 +34,7 @@ class CityRepository{
         }
 
     }
-    async updatecity(cityId,data){
+    async updateCity(cityId,data){
         try{
                 const city=await City.update(data,{
                     where:{
