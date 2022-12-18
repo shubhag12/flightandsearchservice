@@ -1,6 +1,7 @@
 const express=require("express");
 const bodyParser=require("body-parser");
 const {PORT}=require("./config/serverconfig")
+//const {city}=require("./models/index");
 const setupandstartservice=async()=>{
     const app=express();
     app.use(bodyParser.json);
@@ -8,6 +9,7 @@ const setupandstartservice=async()=>{
    // const PORT=3000;
     app.listen(PORT,()=>{
         console.log(`server starting at ${PORT}`);
+        //console.log(city);
        // console.log(process.env);
     })
 }
