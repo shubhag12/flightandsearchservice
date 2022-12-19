@@ -2,6 +2,7 @@ const express=require("express");
 const bodyParser=require("body-parser");
 const {PORT}=require("./config/serverconfig");
 const ApiRoutes=require("./routes/index")
+const db = require('./models/index');
 //const {city}=require("./models/index");
 const setupandstartservice=async()=>{
     const app=express();
@@ -13,6 +14,9 @@ const setupandstartservice=async()=>{
         console.log(`server starting at ${PORT}`);
         //console.log(city);
        // console.log(process.env);
-    })
+       if(process.env.SYNC_DB) {
+        db.sequelize.sync({alter: true});
+    }
+    });
 }
 setupandstartservice();
