@@ -6,7 +6,7 @@ const db = require('./models/index');
 //const {city}=require("./models/index");
 const setupandstartservice=async()=>{
     const app=express();
-    app.use(bodyParser.json);
+    app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended:true}));
     app.use('/api',ApiRoutes);
    // const PORT=3000;
