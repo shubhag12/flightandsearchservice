@@ -82,9 +82,28 @@ const get=async (req,res)=>{
         }); ;
     }
 }
+const getAll=async(req,res)=>{
+    try {
+        const response =await cityService.getAllCities();
+        return res.status(200).json({
+            data:response,
+            success:true,
+            message:"successfully fetched all city",
+            err:{}
+        })
+    } catch (error) {
+        console.log("error at controllers city controllers.js")
+           return res.status(500).json({
+            data:{},
+            success:false,
+            message:"not able to fetched a city",
+            err:error
+        }); ;
+    }
+}
 module.exports={
     create,
     destroy,
     get,
-    update
+    update,getAll
 }
