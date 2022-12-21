@@ -11,15 +11,15 @@ const setupandstartservice=async()=>{
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended:true}));
     app.use('/api',ApiRoutes);
-    
+
    // const PORT=3000;
     app.listen(PORT,async()=>{
         console.log(`server starting at ${PORT}`);
         //console.log(city);
        // console.log(process.env);
-       if(process.env.SYNC_DB) {
-        db.sequelize.sync({alter: true});
-    }
+        if(process.env.SYNC_DB) {
+            db.sequelize.sync({alter: true});
+        }
     });
 }
 setupandstartservice();
