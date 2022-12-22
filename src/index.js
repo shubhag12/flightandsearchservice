@@ -16,18 +16,20 @@ const setupandstartservice=async()=>{
     app.listen(PORT, async()=>{
         console.log(`server starting at ${PORT}`);
         //console.log(city);
-      // console.log(process.env);
+     // console.log(process.env);
        if(process.env.SYNC_DB) {
         db.sequelize.sync({alter: true});
-    }
-       const city=await City.findOne({
-        where:{
-            id:2 }
-       });
-       const airports=await city.getAirports();
-       await city.addAirports()
-       console.log(city,airports);
-    
+   }
+    //    const city=await City.findOne({
+    //     where:{
+    //         id:2 }
+    //    });
+    //    const airports=await city.getAirports();
+    //    await city.addAirports()
+    //    console.log(city,airports);
+    // await Airplane.create({
+    //     modelNumber:'bobamdier cj';
+    // });   
     });
 }
 setupandstartservice();
