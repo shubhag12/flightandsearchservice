@@ -16,7 +16,7 @@ class FlightService {
       });
       return flight;
     } catch (error) {
-      console.log("error in service layer");
+      console.log("error in service layer this is the error");
       throw { error };
     }
   }
