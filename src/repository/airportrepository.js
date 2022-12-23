@@ -1,8 +1,8 @@
-const CrudRepository=require('./crud-repository');
-
+const CrudRepository=require('./crudrepository');
+const {Airport} =require('../models/index')
 class AirportRepository extends CrudRepository{
-    constructor(model){
-        super(model);
+    constructor(){
+        super(Airport);
     }
 }
 module.exports=AirportRepository

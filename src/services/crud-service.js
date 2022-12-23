@@ -4,11 +4,11 @@ class CrudService {
   }
   async create(data) {
     try {
-      const response = await this.respository.create(data);
+      const response = await this.repository.create(data);
       return response;
     } catch (error) {
       console.log("error at crud serice layer");
-      throw response;
+      throw error;
     }
   }
   async destroy(modelId) {
@@ -18,9 +18,10 @@ class CrudService {
           id: modelId,
         },
       });
+      return response;
     } catch (error) {
       console.log("error at crud serice layer");
-      throw response;
+      throw error;
     }
   }
   async get(modelId) {
@@ -29,7 +30,7 @@ class CrudService {
       return response;
     } catch (error) {
       console.log("error at crud serice layer");
-      throw response;
+      throw error;
     }
   }
   async getAll() {
@@ -38,16 +39,16 @@ class CrudService {
       return response;
     } catch (error) {
       console.log("error at crud serice layer");
-      throw response;
+      throw error;
     }
   }
-  async update(data,modelId) {
+  async update(data, modelId) {
     try {
-        const response=await this.repository.update(id,data);
-        return response;
+      const response = await this.repository.update(id, data);
+      return response;
     } catch (error) {
       console.log("error at crud serice layer");
-      throw response;
+      throw error;
     }
   }
 }
