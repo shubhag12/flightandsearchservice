@@ -17,6 +17,7 @@ router.patch("/city/:id", CityController.update);
 router.get("/city", CityController.getAll);
 router.get("/city/:id", CityController.get);
 
+
 //using middle wares  request  response   next
 router.post(
   "/flight",
@@ -24,6 +25,7 @@ router.post(
   FlightController.create
 );
 router.get("/flight", FlightController.getAll);
+router.get("/flights/:id", FlightController.get);
 
 router.post("/airports", AirportController.create);
 

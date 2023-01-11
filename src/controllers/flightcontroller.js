@@ -55,7 +55,30 @@ const getAll = async (req, res) => {
   }
 };
 
+const get=async(req,res)=>{
+  try {
+    //console.log('inside controller')
+    const flight = await flightService.getFlight(req.params.id);
+
+    return res.status(SuccessCodes.OK).json({
+      data: flight,
+      success: true,
+      message: "successfully fetched a fiights",
+      err: {},
+    });
+  } catch (error) {
+    console.log("error at controllers flight controllers.js");
+    return res.status(201).json({
+      data: {},
+      success: false,
+      message: "not able to fetch a flight",
+      err: error,
+    });
+  }
+}
+
 module.exports = {
   create,
   getAll,
+  get
 };
