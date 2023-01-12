@@ -76,9 +76,31 @@ const get=async(req,res)=>{
     });
   }
 }
+const update=async(req,res)=>{
+  try {
+    //console.log('inside controller')
+    const flight = await flightService.updateFlight(req.params.id,req.body);
+
+    return res.status(SuccessCodes.OK).json({
+      data: flight,
+      success: true,
+      message: "successfully update a fiights",
+      err: {},
+    });
+  } catch (error) {
+    console.log("error at controllers flight controllers.js");
+    return res.status(201).json({
+      data: {},
+      success: false,
+      message: "not able to update a flight",
+      err: error,
+    });
+  }
+}
 
 module.exports = {
   create,
   getAll,
-  get
+  get,
+  update
 };

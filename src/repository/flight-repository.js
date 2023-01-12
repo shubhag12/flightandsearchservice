@@ -45,6 +45,19 @@ class FlightRepository {
       throw { error };
     }
   }
+  async updateFlight(flightId,data) {
+    try {
+      const flight = await Flights.update(data,{
+        where:{
+          id:flightId
+        }
+      });
+      return flight;
+    } catch (error) {
+      console.log("something went wrong in the repository layer");
+      throw { error };
+    }
+  }
 
   async getAllFlight(filter) {
     try {
